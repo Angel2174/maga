@@ -1,10 +1,18 @@
 /* Cabecera */
 
+
+.active{
+
+  background: #3c763d;
+}
+
 .navigation {
 
   padding: 0px !important;
+}
 
-
+.navigation .navbar a:hover{
+  background: #3c763d !important;
 }
 
 .navigation .navbar {
@@ -16,4 +24,19 @@
 .navigation .navbar *{
 
   color: black !important;
+}
+
+.jumbotron{
+  padding: 25px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.navigation .navbar .dropdown-menu *{
+  color:black !important;
+
+}
+
+.pointer{
+  cursor: pointer;
 }

@@ -5,10 +5,10 @@
 
         <a href="#" class="navbar-brand">{{title}}</a>
       </div>
-
-      <ul class= "nav navbar-nav">
+<!cuando exista identity o este logueado >
+      <ul class= "nav navbar-nav" *ngIf="identity">
         <li>
-          <a href="#">
+          <a [routerLink]="['/home']" [routerLinkActive]="['active']" >
             <span class="glyphicon glyphicon-home"></span>
             Pagina principal
           </a>
@@ -35,10 +35,55 @@
             Seguridad
           </a>
         </li>
+<!cuando no exista identity o no este logueado>
+      </ul>
+
+      <ul class="nav navbar navbar-nav navbar-right" *ngIf= "!identity">
+        <li>
+          <a [routerLink]="['/login']" [routerLinkActive]="['active']">
+            <span class="glyphicon glyphicon-log-in"></span>
+            Login
+          </a>
+        </li>
 
       </ul>
-    </div>
 
+
+      <! menu del usuario identificado>
+      <ul class="nav navbar navbar-right" *ngIf="identity">
+        <li class="avatar">
+          <! cargar imagen de usuario>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            {{identity.username}} <span class="caret"></span>
+          </a>
+
+          <ul class="dropdown-menu">
+
+            <li>
+              <a [routerLink]="['/mis-datos']">
+                <span class="glyphicon glyphicon-cog"></span>
+                Mis datos personales
+              </a>
+            </li>
+
+            <li>
+              <a class="pointer" (click)="logout()">
+                <span class="glyphicon glyphicon-log-out"></span>
+                Cerrar sesión
+              </a>
+            </li>
+
+          </ul>
+
+        </li>
+
+      </ul>
+
+
+
+    </div>
   </nav>
 </div>
 

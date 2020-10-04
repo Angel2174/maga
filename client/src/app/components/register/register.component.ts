@@ -10,7 +10,7 @@ import { UserService } from '../../services/user.service';
   selector: 'register',
   templateUrl: './register.component.html',
 
-  providers: [UserService]
+  providers: [UserService] //cargar los servicios dentro de esta clase
 
 })
 

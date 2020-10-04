@@ -1,0 +1,173 @@
+<div class="col-lg-5">
+    <h1 class="h1-strong">{{title}}</h1>
+
+
+
+
+<form #userEditForm="ngForm" (ngSubmit)="onSubmit()"  class="col-lg-12">
+  <p>
+    <label>Nombres</label>
+    <input type="text" name="name" #name="ngModel" [(ngModel)]="user.name" required  class="form-control"/>
+    <span *ngIf="!name.value && name.touched" style="color:red">
+    El nombre es obligatorio
+    </span>
+  </p>
+
+  <p>
+    <label>Apellidos</label>
+    <input type="text" name="surname" #surname="ngModel" [(ngModel)]="user.surname" required  class="form-control"/>
+    <span *ngIf="!surname.value && surname.touched" style="color:red">
+    los apellidos son obligatorios
+    </span>
+  </p>
+
+  <p>
+    <label>Usuario</label>
+    <input type="text" name="username" #username="ngModel" [(ngModel)]="user.username" required  class="form-control"/>
+    <span *ngIf="!username.value && username.touched" style="color:red">
+    El usuario es obligatorio
+    </span>
+  </p>
+
+  <p>
+    <label>Correo Electrónico</label>
+    <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" required class="form-control"/>
+    <span *ngIf="!email.value && email.touched" style="color:red">
+    El correo es obligatorio
+    </span>
+  </p>
+
+<! mostrar la imagenes>
+
+<div *ngIf="user.image">
+  <img src="{{url + 'get-image-user/' + user.image}}" />
+
+</div>
+
+  <p>
+    <label>Foto</label>
+    <input type="file" placeholder="Subir archivo" (change)="fileChangeEvent($event)" class="form-control"/>
+
+  </p>
+
+
+  <p>
+    <label>DPI</label>
+    <input type="text" name="dpi" #dpi="ngModel" [(ngModel)]="user.dpi" required class="form-control"/>
+    <span *ngIf="!dpi.value && dpi.touched" style="color:red">
+    El campo es obligatorio.
+    </span>
+  </p>
+
+  <p>
+    <label>documento DPI</label>
+    <input type="file" placeholder="Subir Archivo"  class="form-control"/>
+
+  </p>
+
+  <p>
+    <label>Puesto</label>
+    <input type="text" name="puesto" #puesto="ngModel" [(ngModel)]="user.puesto" required class="form-control"/>
+    <span *ngIf="!puesto.value && puesto.touched" style="color:red">
+    El campo es obligatorio.
+    </span>
+  </p>
+
+  <p>
+    <label>Fecha de Nacimiento</label>
+    <input type="date" name="fecha_nac" #fecha_nac="ngModel" [(ngModel)]="user.fecha_nac" required class="form-control"/>
+    <span *ngIf="!fecha_nac.value && fecha_nac.touched" style="color:red">
+    El campo es obligatorio.
+    </span>
+  </p>
+
+  <p>
+    <label>Numero de Contrato</label>
+    <input type="text" name="num_contrato" #num_contrato="ngModel" [(ngModel)]="user.num_contrato" required class="form-control"/>
+    <span *ngIf="!num_contrato.value && num_contrato.touched" style="color:red">
+    El campo es obligatorio.
+    </span>
+  </p>
+
+  <p>
+    <label>Titulo de Nivel Medio</label>
+    <input type="text" name="titulo_nivel_medio" #titulo_nivel_medio="ngModel" [(ngModel)]="user.titulo_nivel_medio" required class="form-control"/>
+    <span *ngIf="!titulo_nivel_medio.value && titulo_nivel_medio.touched" style="color:red">
+    El campo es obligatorio.
+    </span>
+  </p>
+
+  <p>
+    <label>Documento Titulo de Nivel Medio</label>
+    <input type="file" placeholder="Subir Archivo"  class="form-control"/>
+
+  </p>
+
+  <p>
+    <label>Titulo Universitario</label>
+    <input type="text" name="titulo_universitario" #titulo_universitario="ngModel" [(ngModel)]="user.titulo_universitario"  class="form-control"/>
+
+  </p>
+
+  <p>
+    <label>Documento Titulo Universitario</label>
+    <input type="file" placeholder="Subir Archivo"  class="form-control"/>
+
+  </p>
+
+  <p>
+    <label>Numero de Colegiado Activo</label>
+    <input type="text" name="num_colegiado_activo" #num_colegiado_activo="ngModel" [(ngModel)]="user.num_colegiado_activo"  class="form-control"/>
+  </p>
+
+  <p>
+    <label>Documento Numero de Colegiado Activo</label>
+    <input type="file" placeholder="Subir Archivo"  class="form-control"/>
+
+  </p>
+
+  <p>
+    <label>Numero de NIT</label>
+    <input type="text" name="num_nit" #num_nit="ngModel" [(ngModel)]="user.num_nit" required class="form-control"/>
+    <span *ngIf="!num_nit.value && num_nit.touched" style="color:red">
+    El campo es obligatorio.
+    </span>
+  </p>
+
+  <p>
+    <label>Documento RTU</label>
+    <input type="file" placeholder="Subir Archivo"  class="form-control"/>
+
+  </p>
+
+  <p>
+    <label>Lugar de Trabajo</label>
+    <input type="text" name="Lugar_de_trabajo" #Lugar_de_trabajo="ngModel" [(ngModel)]="user.Lugar_de_trabajo" required class="form-control"/>
+    <span *ngIf="!Lugar_de_trabajo.value && Lugar_de_trabajo.touched" style="color:red">
+    El campo es obligatorio.
+    </span>
+  </p>
+
+  <p>
+    <label>Fecha de Inicio de Labor</label>
+    <input type="date" name="fecha_inic_labor" #fecha_inic_labor="ngModel" [(ngModel)]="user.fecha_inic_labor" required class="form-control"/>
+    <span *ngIf="!fecha_inic_labor.value && fecha_inic_labor.touched" style="color:red">
+    El campo es obligatorio.
+    </span>
+  </p>
+
+
+  <div class="alert alert-success" *ngIf= "status == 'success'">
+    se han actualizado tus datos correctamente.
+  </div>
+
+  <div class="alert alert-danger" *ngIf= "status == 'error'">
+    no se han podido actualizar tus datos, Usuario o correo ya existentes.
+  </div>
+
+  <input type="submit"  value="{{title}}" class="btn btn-warning" [disabled]="!userEditForm.form.valid" />
+
+
+</form>
+
+</div>

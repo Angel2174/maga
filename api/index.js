@@ -1,7 +1,7 @@
 'use strict'
 
 var mongoose = require('mongoose');
-var cors = require('cors');
+
 
 var app = require('./app'); //aqui adentro esta express.
 var port = 3800; //indicar el puerto en el que vamos a trabajar.
@@ -17,4 +17,3 @@ mongoose.connect('mongodb://localhost:27017/pro_maga', {useMongoClient: true})
 
            })
   			.catch(err => console.log(err));
-app.use(cors());
