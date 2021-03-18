@@ -1,0 +1,36 @@
+<div class="col-lg-5 panel panel-default">
+    <h1 class="h1-strong">{{title}}</h1>
+
+    <a class="btn btn-warning" [routerLink]="['/pssner-list']">
+      Ver Informes
+    </a>
+    <br>
+    <br>
+
+<form #newPubForm="ngForm" (ngSubmit)="onSubmit(newPubForm)" class="col-lg-10">
+
+  <p>
+      <label>Actividad</label>
+      <textarea name="actividad" #actividad="ngModel" [(ngModel)]="pssner.actividad" class="form-control" required></textarea>
+      <span *ngIf= "!actividad.valid && actividad.touched">
+          El campo es obliagatorio.
+      </span>
+  </p>
+
+  <input type="submit" value="Enviar" class="btn btn-success" [disabled]="!newPubForm.form.valid" />
+
+  <br>
+  <br>
+
+  <div class="alert alert-success" *ngIf="status == 'success'">
+    Planificacion Enviada Correctamente.
+  </div>
+
+  <div class="alert alert-danger" *ngIf="status == 'error'">
+    Planificacion no enviada.
+  </div>
+</form>
+
+
+
+</div>

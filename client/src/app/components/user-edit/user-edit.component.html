@@ -67,10 +67,9 @@
 
   <p>
     <label>Puesto</label>
-    <input type="text" name="puesto" #puesto="ngModel" [(ngModel)]="user.puesto" required class="form-control"/>
-    <span *ngIf="!puesto.value && puesto.touched" style="color:red">
-    El campo es obligatorio.
-    </span>
+    <input type="text" name="puesto" #puesto="ngModel" [(ngModel)]="user.puesto"  class="form-control"/>
+
+
   </p>
 
   <p>
@@ -142,11 +141,36 @@
 
   <p>
     <label>Lugar de Trabajo</label>
-    <input type="text" name="Lugar_de_trabajo" #Lugar_de_trabajo="ngModel" [(ngModel)]="user.Lugar_de_trabajo" required class="form-control"/>
+    <select type="text" name="Lugar_de_trabajo" #Lugar_de_trabajo="ngModel" [(ngModel)]="user.Lugar_de_trabajo" required class="form-control">
+    <option >SEDE Departamental</option>
+    <option >AMER Cobán</option>
+    <option >AMER Santa Cruz Verapaz</option>
+    <option >AMER San Cristóbal Verapaz</option>
+    <option >AMER Tactic</option>
+    <option >AMER Tamahú</option>
+    <option >AMER Tucurú</option>
+    <option >AMER Panzós</option>
+    <option >AMER Senahú</option>
+    <option >AMER San Pedro Carchá</option>
+    <option >AMER San Juan Chamelco</option>
+    <option >AMER Lanquín</option>
+    <option >AMER Cahabón</option>
+    <option >AMER Chisec</option>
+    <option >AMER Chahal</option>
+    <option >AMER Fray Bartolomé de las casas</option>
+    <option >AMER Santa Catalina la Tinta</option>
+    <option >AMER Raxruhá</option>
+
+
+
+
+    </select>
     <span *ngIf="!Lugar_de_trabajo.value && Lugar_de_trabajo.touched" style="color:red">
     El campo es obligatorio.
     </span>
   </p>
+
+
 
   <p>
     <label>Fecha de Inicio de Labor</label>

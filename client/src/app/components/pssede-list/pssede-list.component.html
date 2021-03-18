@@ -1,0 +1,21 @@
+<div class="col-lg-12 panel panel-default">
+    <h1 class="h1-strong">{{title}}</h1>
+
+    <div *ngFor="let publication of publications" class="item-publication">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h4 class="text-primary"><b>{{publication.user.name + ' ' + publication.user.surname}}</b></h4>
+          <h5 class="text-primary"><b>{{publication.user.email}}</b></h5>
+          <h5 class="text-primary"><b>{{publication.user.Lugar_de_trabajo}}</b></h5>
+          <h5 class="text-primary"><b>{{publication.user.puesto}}</b></h5>
+
+          <div class="publication-text pull-left">
+            <h4><b>Actividades:</b></h4> <h5><i>{{publication.actividad}}</i></h5>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+</div>

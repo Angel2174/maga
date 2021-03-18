@@ -15,7 +15,7 @@ var UserSchema = Schema({
   image: String,
   dpi: String,
   doc_dpi: String,
-  puesto: String, //{type: Schema.ObjectId, ref: 'Puesto'}
+  puesto: String,
   fecha_nac: String,
   num_contrato: String,
   titulo_nivel_medio: String,
@@ -27,7 +27,8 @@ var UserSchema = Schema({
   num_nit: String,
   doc_RTU: String,
   Lugar_de_trabajo: String,
-  fecha_inic_labor: String
+  fecha_inic_labor: String,
+  created_at: String
 
 });
 

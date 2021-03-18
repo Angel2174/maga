@@ -18,11 +18,12 @@ export class RegisterComponent implements OnInit{
 
 public title: string;
 public user: User;
+public status: string;
 
 constructor(
 
 private _route: ActivatedRoute,
-private_router: Router,
+private _router: Router,
 
 private _userService: UserService
 
@@ -37,7 +38,17 @@ this.user = new User(
 "",
 "",
 "",
-"ROLE_USER",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
+"",
 ""
 )
 
@@ -56,8 +67,10 @@ onSubmit(){
 this._userService.register(this.user).subscribe(
 response => {
   if(response.user && response.user._id){
-
+      this.status = 'success';
     console.log(response.user);
+  }else{
+    this.status = 'error';
   }
 },
 error => {

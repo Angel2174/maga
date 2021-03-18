@@ -63,6 +63,14 @@ onSubmit(){
                             this.user.image = result.user.image;
                             localStorage.setItem('identity', JSON.stringify(this.user));
                           });
+
+      //subida de imagen dpi
+    /*  this._uploadService.makeFileRequest(this.url+'upload-dpi-user/'+this.user._id, [], this.filesToUpload, this.token, 'doc_dpi')
+                          .then((result: any) => {
+
+                            this.user.doc_dpi = result.user.doc_dpi;
+                            localStorage.setItem('identity', JSON.stringify(this.user));
+                          });*/
     }
   },
   error => {

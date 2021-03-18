@@ -30,7 +30,7 @@ private _userService: UserService
 
 ){
 this.title = 'Indentificate';
-this.user = new User("","","","","","","ROLE_USER","");
+this.user = new User("","","","","","","","","","","","","","","","","","");
 
 
 }

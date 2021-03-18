@@ -1,0 +1,43 @@
+<div class="col-lg-6">
+    <h1 class="h1-strong">{{title}}</h1>
+    <div id="data-profile" *ngIf="user">
+      <div class="avatar pull-left">
+        <img src="{{ url + 'get-image-user/' + user.image }}" *ngIf="user.image"/>
+        <img src="assets/usuario.png" *ngIf="!user.image" /><br><br>
+
+        <div class="user-name">
+          <label>Nombres y Apellidos: </label>
+            <p>{{user.name + ' ' + user.surname}}</p>
+            <label>Usuario: </label>
+            <p>{{user.username}}</p>
+            <label>Correo Electronico: </label>
+            <p>{{user.email}}</p>
+            <label>Rol: </label>
+            <p>{{user.role}}</p>
+            <label>DPI: </label>
+            <p>{{user.dpi}}</p>
+            <label>Fecha de Nacimiento: </label>
+            <p>{{user.fecha_nac}}</p>
+            <label>Número de Contrato: </label>
+              <p>{{user.num_contrato}}</p>
+              <label>Titulo de Nivel Medio: </label>
+                <p>{{user.titulo_nivel_medio}}</p>
+                <label>Titulo Universitario: </label>
+                  <p>{{user.titulo_universitario}}</p>
+                  <label>Número de Colegiado: </label>
+                    <p>{{user.num_colegiado_activo}}</p>
+                    <label>Número de NIT: </label>
+                      <p>{{user.num_nit}}</p>
+                      <label>Lugar de Trabajo: </label>
+                        <p>{{user.Lugar_de_trabajo}}</p>
+                        <label>Fecha de Inicio de Labor: </label>
+                          <p>{{user.fecha_inic_labor}}</p>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+</div>

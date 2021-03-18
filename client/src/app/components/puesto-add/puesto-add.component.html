@@ -1,0 +1,20 @@
+<div class="col-lg-5" *ngIf="identity">
+    <h1 class="h1-strong">{{title}}</h1>
+
+
+<form #formPuesto="ngForm" (ngSubmit)="onSubmit()" class="col-lg-10">
+
+
+    <p>
+      <label>Puesto</label><br>
+      <input type="text" name="name" #name="ngModel"  [(ngModel)]="puesto.name" required />
+      <span *ngIf="!name.valid && name.touched" >
+      Campo obligatorio.
+      </span>
+    </p>
+
+
+    <input type="submit" value="{{title}}" class="btn btn-success" [disabled] = "!formPuesto.form.valid"  />
+    </form>
+
+</div>

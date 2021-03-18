@@ -2,7 +2,7 @@
     <h1 class="h1-strong">{{title}}</h1>
 
     <div class="alert alert-success" *ngIf="status == 'success'">
-      Registro completado con éxtio, <a [routerLink]="['/login']">Indentificate aquí</a>
+      Registro completado con éxito.
     </div>
 
     <div class="alert alert-danger" *ngIf="status == 'error'">
@@ -55,8 +55,23 @@
           </span>
       </p>
 
-      <input type="submit"  value="{{title}}" class="btn btn-success" [disabled] = "!registerForm.form.valid"  />
+      <p>
+        <label>Rol</label>
+        <select  type="text" name="role" #role="ngModel" [(ngModel)] = "user.role" class="form-control" required >
+        <option selected="" value="ROLE_USER">ROLE_USER</option>
+        <option value="ROLE_ADMIN">ROLE_ADMIN</option>
+        <option value="ROLE_ADMIN">ROLE_NULO</option>
+        </select>
+        <span *ngIf= "!role.valid && role.touched">
+            El rol es obligatorio!!
+        </span>
+      </p>
 
+      <input type="submit"  value="{{title}}" class="btn btn-success" [disabled] = "!registerForm.form.valid"  />
+  &nbsp;
+      <a class="btn btn-danger" [routerLink]="['/user-list']">
+        Volver
+      </a>
 
 
     </form>

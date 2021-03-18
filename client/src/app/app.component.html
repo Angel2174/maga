@@ -22,19 +22,38 @@
           </a>
         </li>
 
-        <li>
-          <a href="#">
+        <!--  <li>
+        <a href="#">
             <span class="glyphicon glyphicon-th-list"></span>
             Informes
           </a>
+        </li> -->
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                aria-expanded="false">Informes <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a [routerLink]="['/pssner']">
+              <span class="glyphicon glyphicon-pencil"></span>
+              Planificación Semanal SNER</a></li>
+
+            <li><a [routerLink]="['/pssede']">
+            <span class="glyphicon glyphicon-pencil"></span>
+            Planificación Semanal SEDE</a></li>
+
+            <li><a [routerLink]="['/relevantes']">
+            <span class="glyphicon glyphicon-pencil"></span>
+            Informe de Actividades Relevantes SNER</a></li>
+
+            <li><a [routerLink]="['/relevantessede']">
+            <span class="glyphicon glyphicon-pencil"></span>
+            Informe de Actividades Relevantes SEDE</a></li>
+
+
+          </ul>
         </li>
 
-        <li>
-          <a href="#">
-            <span class="glyphicon glyphicon-wrench"></span>
-            Seguridad
-          </a>
-        </li>
+
 <!cuando no exista identity o no este logueado>
       </ul>
 
@@ -50,12 +69,12 @@
 
 
       <! menu del usuario identificado>
-      <ul class="nav navbar navbar-right" *ngIf="identity">
+      <ul class="nav navbar navbar-right" *ngIf="identity" >
         <li class="avatar">
-          <! cargar imagen de usuario>
+          <! cargar imagen de usuario >
         </li>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" >
             {{identity.username}} <span class="caret"></span>
           </a>
 
@@ -63,8 +82,22 @@
 
             <li>
               <a [routerLink]="['/mis-datos']">
-                <span class="glyphicon glyphicon-cog"></span>
+                <span class="glyphicon glyphicon-pencil"></span>
                 Mis datos personales
+              </a>
+            </li>
+
+            <li>
+              <a *ngIf="identity.role == 'ROLE_ADMIN'" [routerLink]="['/user-list']">
+                <span class="glyphicon glyphicon-user"></span>
+                Administrar Empleados
+              </a>
+            </li>
+
+            <li>
+              <a *ngIf="identity.role == 'ROLE_ADMIN'" [routerLink]="['/puesto']">
+                <span class="glyphicon glyphicon-briefcase"></span>
+                Administrar Puesto Laboral
               </a>
             </li>
 
@@ -74,6 +107,8 @@
                 Cerrar sesión
               </a>
             </li>
+
+
 
           </ul>
 

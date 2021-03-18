@@ -1,0 +1,86 @@
+<div class="col-lg-6">
+    <h1 class="h1-strong">{{title}}</h1>
+
+    <a class="btn btn-success" [routerLink]="['/registro']">
+      Nuevo Empleado
+    </a>
+    <br>
+    <br>
+
+    <div class="people">
+      <div *ngFor="let user of users" class="item-user">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="image-user pull-left">
+
+                <img src="{{url +'get-image-user/' + user.image }}" *ngIf="user.image" />
+                  <img src="assets/usuario.png" *ngIf="!user.image" class="avatar-default"/>
+
+            </div>
+            <div class="user-name pull-left">
+              <p class="name-surname">
+                <a [routerLink]="['/perfil',user._id]">
+                  {{user.name + ' ' + user.surname  }}
+                </a>
+              </p>
+              <p class="nickname">{{user.Lugar_de_trabajo}}</p>
+              <p class="nickname">{{user.puesto}}</p>
+
+
+
+              <a [routerLink]="['/mis-datos','user._id']" class="btn btn-sm btn-warning">Editar</a>&nbsp;
+              <a (click)="onDeleteConfirm(user._id)" class="btn btn-sm btn-danger"> Eliminar</a>
+
+              <div class="seguro" *ngIf="confirmado == user._id">
+                <a (click)="deleteUser(user._id)" class="btn btn-sm btn-danger"> Eliminar</a>&nbsp;
+
+                <a (click)="onCancelUser(user._id)" class="btn btn-sm btn-success"> Cancelar</a>
+              </div>
+
+
+
+
+            </div>
+            <!-- Seleccionar empledo-->
+            <div class="pull-right" *ngIf="user._id != identity._id">
+              <button class="btn btn-success" *ngIf="follows.indexOf(user._id) < 0"
+              (click)="Select_empleadoUser(user._id)">
+            <span class="glyphicon glyphicon-plus-sign"></span>
+            seleccionar
+              </button>
+
+              <button class="btn btn-primary"
+               *ngIf="follows.indexOf(user._id) >= 0"
+                (mouseenter) = "mouseEnter(user._id)"
+                (mouseleave) = "mouseLeave(user._id)"
+                (click) = "unfollowUser(user._id)"
+                [class.btn-danger] ="user._id == followUserOver"
+                >
+                <span *ngIf="user._id == followUserOver; else following">
+                <span class="glyphicon glyphicon-minus-sign"></span>
+                Cancelar
+                </span>
+                <ng-template #following>
+                <span class="glyphicon glyphicon-ok-sign"></span>
+                Seleccionado
+                </ng-template>
+              </button>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!--paginacion-->
+<ul class="pagination pull-rigth">
+  <li *ngIf="page > 1"><a [routerLink]="['/user-list', prev_page]">Anterior</a></li>
+  <li *ngIf="pages != page"><a [routerLink]="['/user-list', next_page]">Siguiente</a></li>
+</ul>
+
+    </div>
+
+  </div>
